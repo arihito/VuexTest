@@ -1,13 +1,20 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
+    <p>{{ message }}</p>
     <router-view/>
+    <EditForm />
   </div>
 </template>
 
 <script>
+import EditForm from '@/components/EditForm.vue'
 export default {
-  name: 'App'
+  name: 'app',
+  components: { EditForm },
+  computed: {
+    message() { return this.$store.getters.message }
+  }
 }
 </script>
 
